@@ -11,20 +11,7 @@ import { LatestInvoicesSkeleton, RevenueChartSkeleton, CardsSkeleton } from '@/a
 
 
 export default async function Page() {
-  //const revenue = await fetchRevenue();
-  //const latestInvoices = await fetchLatestInvoices();
-  // const {
-  //   numberOfInvoices,
-  //   numberOfCustomers,
-  //   totalPaidInvoices,
-  //   totalPendingInvoices,
-  // } = await fetchCardData();
-  // Min løsning - ikke så pæn
-  // const cardData= (await fetchCardData());
-  // const numberOfInvoices=cardData.numberOfInvoices;
-  // const totalPaidInvoices= cardData.totalPaidInvoices;
-  // const totalPendingInvoices=cardData.totalPendingInvoices;
-  // const numberOfCustomers=cardData.numberOfCustomers;
+
     return(
         <main>
           <h1 className={`${lusitana.className} mb-4 test-x1 md:text-2x1`}>
@@ -34,24 +21,14 @@ export default async function Page() {
             <Suspense fallback={<CardsSkeleton />}>
               <CardWrapper />
             </Suspense>
-            {/* <Card title="Collected" value={totalPaidInvoices} type="collected" /> */}
-            {/* <Card title="Pending" value={totalPendingInvoices} type="pending" /> */}
-            {/* <Card title="Total Invoices" value={numberOfInvoices} type="invoices" /> */}
-            {/* <Card
-              title="Total Customers"
-              value={numberOfCustomers}
-              type="customers"
-            /> */}
           </div>
           <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-4 lg:grid-cols-8">
-            {/* <RevenueChart revenue={revenue}  /> */}
             <Suspense fallback={<RevenueChartSkeleton />}>
               <RevenueChart />
             </Suspense>
             <Suspense fallback={<LatestInvoicesSkeleton/>}>
               <LatestInvoices/>
             </Suspense>
-            {/* <LatestInvoices latestInvoices={latestInvoices} /> */}
           </div>
         </main>
     );
